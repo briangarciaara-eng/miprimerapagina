@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Asistente Virtual Alcaldia</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="sidebar" aria-label="Temas disponibles">
+        <div class="brand">
+          <div class="brand-mark">IA</div>
+          <div>
+            <p class="eyebrow">Atencion ciudadana</p>
+            <h1 id="assistant-name">Asistente Virtual</h1>
+          </div>
+        </div>
+
+        <div class="status">
+          <span class="status-dot"></span>
+          Servicio en linea
+        </div>
+
+        <h2>Temas disponibles</h2>
+        <div id="topics" class="topics"></div>
+      </section>
+
+      <section class="chat-panel" aria-label="Chat ciudadano">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Consulta guiada</p>
+            <h2>Chat ciudadano</h2>
+          </div>
+          <button id="clear-chat" class="ghost-button" type="button">Limpiar</button>
+        </header>
+
+        <div id="messages" class="messages" aria-live="polite"></div>
+
+        <form id="chat-form" class="composer">
+          <label class="sr-only" for="question">Pregunta del ciudadano</label>
+          <input
+            id="question"
+            name="question"
+            type="text"
+            autocomplete="off"
+            placeholder="Escribe tu pregunta, por ejemplo: horario del aseo"
+            maxlength="500"
+            required
+          />
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/web/app.js"></script>
+  </body>
+</html>
