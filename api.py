@@ -50,3 +50,7 @@ def obtener_menu():
 @api.post("/api/chat", response_model=ChatResponse)
 def chat(payload: ChatRequest):
     return {"respuesta": generar_respuesta(payload.pregunta)}
+    
+    
+    # Al final de tu api.py agrega esto para que Vercel lo encuentre sin problemas:
+app = api
