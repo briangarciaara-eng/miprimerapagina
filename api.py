@@ -21,6 +21,7 @@ api.mount("/web", StaticFiles(directory=WEB_DIR), name="web")
 
 class ChatRequest(BaseModel):
     pregunta: str = Field(..., min_length=1, max_length=500)
+    ultima_pregunta_usuario: str | None = Field(default=None, max_length=500)
 
 
 class ChatResponse(BaseModel):
@@ -49,7 +50,12 @@ def obtener_menu():
 
 @api.post("/api/chat", response_model=ChatResponse)
 def chat(payload: ChatRequest):
-    return {"respuesta": generar_respuesta(payload.pregunta)}
+    return {
+        "respuesta": generar_respuesta(
+            payload.pregunta,
+            ultima_pregunta_usuario=payload.ultima_pregunta_usuario,
+        )
+    }
     
     
     # Al final de tu api.py agrega esto para que Vercel lo encuentre sin problemas:

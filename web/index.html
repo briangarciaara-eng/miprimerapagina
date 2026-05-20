@@ -8,11 +8,11 @@
   </head>
   <body>
     <main class="shell">
-      <section class="sidebar" aria-label="Temas disponibles">
+      <section id="sidebar-panel" class="sidebar" aria-label="Temas disponibles">
         <div class="brand">
           <div class="brand-mark">IA</div>
           <div>
-            <p class="eyebrow">Atencion ciudadana</p>
+            <p class="eyebrow">Atencion institucional</p>
             <h1 id="assistant-name">Asistente Virtual</h1>
           </div>
         </div>
@@ -26,13 +26,19 @@
         <div id="topics" class="topics"></div>
       </section>
 
-      <section class="chat-panel" aria-label="Chat ciudadano">
+      <section class="chat-panel" aria-label="Asistencia virtual">
         <header class="chat-header">
           <div>
-            <p class="eyebrow">Consulta guiada</p>
-            <h2>Chat ciudadano</h2>
+            <p class="eyebrow">Canal digital</p>
+            <h2>Asistente de orientacion</h2>
+            <p class="chat-subtitle">Respuestas orientativas para consultas de servicio, educacion y salud.</p>
           </div>
-          <button id="clear-chat" class="ghost-button" type="button">Limpiar</button>
+          <div class="header-actions">
+            <button id="toggle-sidebar" class="ghost-button mobile-only" type="button" aria-expanded="false" aria-controls="sidebar-panel">
+              Ver temas
+            </button>
+            <button id="clear-chat" class="ghost-button" type="button">Nueva consulta</button>
+          </div>
         </header>
 
         <div id="messages" class="messages" aria-live="polite"></div>
@@ -44,11 +50,12 @@
             name="question"
             type="text"
             autocomplete="off"
-            placeholder="Escribe tu pregunta, por ejemplo: horario del aseo"
+            placeholder="Escribe tu consulta. Ejemplo: requisitos de atencion"
             maxlength="500"
             required
           />
           <button type="submit">Enviar</button>
+          <p class="composer-hint">Sugerencia: selecciona un tema para completar tu consulta mas rapido.</p>
         </form>
       </section>
     </main>
